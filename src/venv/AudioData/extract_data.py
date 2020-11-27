@@ -3,8 +3,8 @@ import librosa
 import math
 import json
 
-DATASET_PATH="Data/genres_original"
-JSON_PATH= "data_10.json"
+DATASET_PATH="../../Data/genres_original"
+JSON_PATH= "../data_10.json"
 SAMPLE_RATE = 22050
 TRACK_DURATION = 30 # measured in seconds
 SAMPLE_PER_TRACK = SAMPLE_RATE * TRACK_DURATION
@@ -68,7 +68,6 @@ def save_mfcc(dataset_path, json_path, num_mfcc=13, n_fft=2048, hop_length=512, 
                         data["labels"].append(i-1)
                         print(f"{file_path}, segment:{d+1}")
 
-    print("PIN")
     # save MFCCs to json file
     with open(json_path, "w") as fp:
         json.dump(data, fp, indent=4)
